@@ -26,10 +26,11 @@ public class DepositListCommand implements Command {
 
     while (iterator.hasNext()) {
       Bank bank = iterator.next();
-      out.printf("%s %s %d %d\n",
+      out.printf("%d %s %s %s %d\n",
+          bank.getNo(),
+    	   bank.getAno(),
+    	   bank.getName(),
     	   bank.getRegisteredDate(),
-    	   bank.getStatus(),
-    	   bank.getMoney(),
     	   bank.getBalance());
     }
   }

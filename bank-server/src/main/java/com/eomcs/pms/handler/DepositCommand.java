@@ -11,7 +11,7 @@ import com.eomcs.util.Prompt;
 // Bank랑 연결해야함!
 public class DepositCommand implements Command {
 
-
+	Scanner keyScanner = new Scanner(System.in);
 	List<Bank> bankList;
 
 	public DepositCommand(List<Bank> list) {
@@ -32,6 +32,7 @@ public class DepositCommand implements Command {
 
 		  switch (op) {
 		  case 1:
+
 				  out.println("[ 입금  ]");
 
 			   	  bank.setMoney(Prompt.inputInt("입금액 >  ", out, in));
@@ -39,12 +40,14 @@ public class DepositCommand implements Command {
 			   	  balance += bank.getMoney();
 			   	  out.println("입금 완료!");
 			   	  out.printf("입금 후 잔액은  %d 원 입니다.\n", balance);
-
+			     
+			   	  bank.setBalance(balance);
+				  bankList.add(bank);
+			  
 			  break;
 
 		  case 2:
 				  out.println("[ 출금  ]");
-				  out.println();
 
 				  bank.setMoney(Prompt.inputInt("출금액 >  ", out, in));
 
@@ -55,14 +58,16 @@ public class DepositCommand implements Command {
 			    	out.println("출금 완료!");
 			   	  }
 			       out.printf("잔액은  %d 원 입니다.\n", balance);
+			       
+			       bank.setBalance(balance);
+					bankList.add(bank);
 			       break;
 
 		  default :
-				  out.println("잘못된 입력입니다.");
+				  out.println("취소 되었습니다.");
 		  }
 
-		  bank.setBalance(balance);
-		  bankList.add(bank);
+		  
 
 	  } catch (Exception e) {
 		  out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
