@@ -4,19 +4,18 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.eomcs.pms.domain.Account;
-import com.eomcs.util.Prompt;
+import com.eomcs.pms.domain.Bank;
 
 // Command 규칙에 따라 클래스를 정의한다.
 public class AccountAtmCommand implements Command {
-	
-	List<Account> accountList;
-	
+
+	List<Bank> accountList;
+
 	String accountId;
 	  long balance;
-	  
-	  public AccountAtmCommand(List<Account> list) {
-		    this.accountList = list;
+
+	  public AccountAtmCommand(List<Bank> list) {
+		    accountList = list;
 		  }
 	  @Override
 	  public void execute(PrintWriter out, BufferedReader in) {
@@ -32,7 +31,7 @@ public class AccountAtmCommand implements Command {
 	    	    //    => 크리티컬 섹션에 해당하는 메서드나 코드 블록에 sychronized 키워드를 붙여
 	    	    //       한 번에 한 스레드만 진입할 수 있도록 lock을 건다.
 	    	    //
-	    	    long b = this.balance;
+	    	    long b = balance;
 
 	    	    delay();  // CPU를 뺏길 기회를 제공
 
@@ -45,15 +44,16 @@ public class AccountAtmCommand implements Command {
 
 	    	    delay();  // CPU를 뺏길 기회를 제공
 
-	    	    this.balance = b;
+	    	    balance = b;
 
 	    	    delay();  // CPU를 뺏길 기회를 제공
 
 	    	    return money;
 	    	  }
 
-	    	  
-	    	}
+	    	} catch (Exception e) {
+	    	      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+	        }
 	    }
 	  private void delay() {
   	    int delayCount = (int)(Math.random() * 1000);
@@ -61,4 +61,3 @@ public class AccountAtmCommand implements Command {
   	      Math.asin(45.765); // CPU를 뺏길 기회를 제공
   	  }
 }
-	 

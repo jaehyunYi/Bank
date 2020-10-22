@@ -4,16 +4,16 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.eomcs.pms.domain.Account;
+import com.eomcs.pms.domain.Bank;
 import com.eomcs.util.Prompt;
 
 // Command 규칙에 따라 클래스를 정의한다.
 public class AccountOpeningCommand implements Command {
 
-  List<Account> accountList;
+  List<Bank> accountList;
 
-  public AccountOpeningCommand(List<Account> list) {
-    this.accountList = list;
+  public AccountOpeningCommand(List<Bank> list) {
+    accountList = list;
   }
 
   @Override
@@ -21,7 +21,7 @@ public class AccountOpeningCommand implements Command {
     try {
       out.println("[계좌 등록]");
 
-      Account account = new Account();
+      Bank account = new Bank();
       account.setNo(Prompt.inputInt("번호? ", out, in));
       account.setAno(Prompt.inputString("계좌번호?", out, in));
       account.setName(Prompt.inputString("이름? ", out, in));

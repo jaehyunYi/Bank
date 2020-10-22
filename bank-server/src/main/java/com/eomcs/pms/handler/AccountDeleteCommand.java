@@ -4,15 +4,15 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.eomcs.pms.domain.Account;
+import com.eomcs.pms.domain.Bank;
 import com.eomcs.util.Prompt;
 
 public class AccountDeleteCommand implements Command {
 
-  List<Account> accountList;
+  List<Bank> accountList;
 
-  public AccountDeleteCommand(List<Account> list) {
-    this.accountList = list;
+  public AccountDeleteCommand(List<Bank> bankList) {
+    accountList = bankList;
   }
 
   @Override
@@ -43,7 +43,7 @@ public class AccountDeleteCommand implements Command {
 
   private int indexOf(int no) {
     for (int i = 0; i < accountList.size(); i++) {
-    	Account account = accountList.get(i);
+    	Bank account = accountList.get(i);
       if (account.getNo() == no) {
         return i;
       }

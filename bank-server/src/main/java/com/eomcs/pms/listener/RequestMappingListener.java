@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.eomcs.context.ApplicationContextListener;
-import com.eomcs.pms.domain.Account;
 import com.eomcs.pms.domain.Bank;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Member;
@@ -49,7 +48,6 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<Member> memberList = (List<Member>) context.get("memberList");
     List<Project> projectList = (List<Project>) context.get("projectList");
     List<Task> taskList = (List<Task>) context.get("taskList");
-    List<Account> accountList = (List<Account>) context.get("accountList");
     List<Bank> bankList = (List<Bank>) context.get("bankList");
 
 
@@ -81,10 +79,9 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/hello", new HelloCommand());
 
     context.put("/calc", new CalculatorCommand());
-    context.put("/account/opening",new AccountOpeningCommand(accountList)); // 계좌개설
-    context.put("/account/list", new AccountListCommand(accountList));
-    context.put("/account/delete", new AccountDeleteCommand(accountList));
-
+    context.put("/account/opening",new AccountOpeningCommand(bankList)); // 계좌개설
+    context.put("/account/list", new AccountListCommand(bankList));
+    context.put("/account/delete", new AccountDeleteCommand(bankList));
     context.put("/bank/deposit", new DepositCommand(bankList));
     context.put("/bank/list", new DepositListCommand(bankList));
   }
