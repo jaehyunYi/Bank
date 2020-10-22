@@ -70,6 +70,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/hello", new HelloCommand());
 
     context.put("/calc", new CalculatorCommand());
+    context.put(key, value) // 계좌개설
   }
 
   @Override
