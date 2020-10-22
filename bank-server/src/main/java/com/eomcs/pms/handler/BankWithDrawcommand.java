@@ -13,7 +13,7 @@ public class BankWithDrawcommand implements Command {
   List<Bank> bankList;
 
   public BankWithDrawcommand(List<Bank> list) {
-    bankList = list;
+    this.bankList = list;
   }
   Scanner scanner = new Scanner(System.in);
   @Override
@@ -37,10 +37,10 @@ public class BankWithDrawcommand implements Command {
         return;
       }
       int oldmoney;
-     oldmoney = bank.getBalance();
+     oldmoney = bank.getBalance(); 
      //+=
      bank.setBalance(oldmoney-balance);
-
+     
       out.println("출금 되었습니다.");
       out.printf("출금 후 잔액은  %d 원 입니다.\n", balance);
 

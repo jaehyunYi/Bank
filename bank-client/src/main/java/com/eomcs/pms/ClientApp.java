@@ -19,8 +19,6 @@ public class ClientApp {
       System.exit(0);
     }
 
-    host = args[0];
-    port = Integer.parseInt(args[1]);
 
 
     System.out.println("  _    ______  _____  _____   ______   ___   _   _  _   __    _  ");
@@ -30,7 +28,10 @@ public class ClientApp {
     System.out.println("(   /  | |_/ / _| |_   | |    | |_/ /| | | || |\\  || |\\  \\  (   /");
     System.out.println(" |_|   \\____/  \\___/   \\_/    \\____/ \\_| |_/\\_| \\_/\\_| \\_/   |_| ");
     System.out.println();
-
+    System.out.println("_______________________________________________________________________");
+    System.out.println("| [1]계좌 개설           [2]");
+    host = args[0];
+    port = Integer.parseInt(args[1]);
 
     while (true) {
       String input = Prompt.inputString("명령> ");

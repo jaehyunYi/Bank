@@ -13,7 +13,7 @@ public class BankDepositcommand implements Command {
   List<Bank> bankList;
 
   public BankDepositcommand(List<Bank> list) {
-    bankList = list;
+    this.bankList = list;
   }
   Scanner scanner = new Scanner(System.in);
   @Override
@@ -37,10 +37,10 @@ public class BankDepositcommand implements Command {
         return;
       }
       int oldmoney;
-     oldmoney = bank.getBalance();
+     oldmoney = bank.getBalance(); 
      //+=
      bank.setBalance(balance+oldmoney);
-
+     
       out.println("입금 되었습니다.");
       out.printf("입금 후 잔액은  %d 원 입니다.\n", balance);
 
