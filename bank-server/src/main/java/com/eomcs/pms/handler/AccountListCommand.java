@@ -25,9 +25,9 @@ public class AccountListCommand implements Command {
 
     while (iterator.hasNext()) {
       Account account = iterator.next();
-      out.printf("%s,%d, %s, %d\n",
+      out.printf("%d,%s, %s, %d\n",
+    	   account.getNo(),
     	   account.getAno(),
-          account.getNo(),
           account.getName(),
           account.getBalance());
     }
