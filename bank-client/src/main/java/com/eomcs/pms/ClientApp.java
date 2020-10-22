@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
 import com.eomcs.util.Prompt;
 
 public class ClientApp {
@@ -20,6 +21,16 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
+
+
+    System.out.println("  _    ______  _____  _____   ______   ___   _   _  _   __    _  ");
+    System.out.println(" | |   | ___ \\|_   _||_   _|  | ___ \\ / _ \\ | \\ | || | / /   | | ");
+    System.out.println("/ __)  | |_/ /  | |    | |    | |_/ // /_\\ \\|  \\| || |/ /   / __)");
+    System.out.println("\\__ \\  | ___ \\  | |    | |    | ___ \\|  _  || . ` ||    \\   \\__ \\");
+    System.out.println("(   /  | |_/ / _| |_   | |    | |_/ /| | | || |\\  || |\\  \\  (   /");
+    System.out.println(" |_|   \\____/  \\___/   \\_/    \\____/ \\_| |_/\\_| \\_/\\_| \\_/   |_| ");
+    System.out.println();
+
 
     while (true) {
       String input = Prompt.inputString("명령> ");

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.eomcs.pms.domain.Bank;
-import com.eomcs.pms.domain.Board;
 import com.eomcs.util.Prompt;
 
 public class BankWithDrawcommand implements Command {
@@ -14,7 +13,7 @@ public class BankWithDrawcommand implements Command {
   List<Bank> bankList;
 
   public BankWithDrawcommand(List<Bank> list) {
-    this.bankList = list;
+    bankList = list;
   }
   Scanner scanner = new Scanner(System.in);
   @Override
@@ -38,10 +37,10 @@ public class BankWithDrawcommand implements Command {
         return;
       }
       int oldmoney;
-     oldmoney = bank.getBalance(); 
+     oldmoney = bank.getBalance();
      //+=
      bank.setBalance(oldmoney-balance);
-     
+
       out.println("출금 되었습니다.");
       out.printf("출금 후 잔액은  %d 원 입니다.\n", balance);
 
