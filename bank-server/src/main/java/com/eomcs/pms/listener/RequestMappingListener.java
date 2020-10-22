@@ -12,6 +12,7 @@ import com.eomcs.pms.domain.Task;
 import com.eomcs.pms.handler.AccountDeleteCommand;
 import com.eomcs.pms.handler.AccountListCommand;
 import com.eomcs.pms.handler.AccountOpeningCommand;
+import com.eomcs.pms.handler.BankDepositcommand;
 import com.eomcs.pms.handler.BankWithDrawcommand;
 import com.eomcs.pms.handler.BoardAddCommand;
 import com.eomcs.pms.handler.BoardDeleteCommand;
@@ -85,6 +86,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/account/delete", new AccountDeleteCommand(bankList));
     context.put("/bank/deposit", new DepositCommand(bankList));
     context.put("/bank/list", new DepositListCommand(bankList));
+    context.put("/bank/deposit",new BankDepositcommand(bankList));
     context.put("/bank/withdraw",new BankWithDrawcommand(bankList));
   }
 

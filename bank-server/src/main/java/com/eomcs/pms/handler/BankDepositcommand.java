@@ -9,19 +9,19 @@ import com.eomcs.pms.domain.Bank;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.util.Prompt;
 
-public class BankWithDrawcommand implements Command {
+public class BankDepositcommand implements Command {
 
   List<Bank> bankList;
 
-  public BankWithDrawcommand(List<Bank> list) {
+  public BankDepositcommand(List<Bank> list) {
     this.bankList = list;
   }
   Scanner scanner = new Scanner(System.in);
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[계좌 출금]");
-      int no = Prompt.inputInt("출금할 번호? ", out, in);
+      out.println("[계좌 입금]");
+      int no = Prompt.inputInt("입금할 번호? ", out, in);
       Bank bank = findByNo(no);
 
       if (bank == null) {
@@ -30,20 +30,20 @@ public class BankWithDrawcommand implements Command {
       }
 
       int balance = Prompt.inputInt(
-          String.format("출금할 돈(%s)? ", bank.getBalance()), out, in);
+          String.format("입금할 돈(%s)? ", bank.getBalance()), out, in);
 
-      String response = Prompt.inputString("정말 출금하시겠습니까?(y/N) ", out, in);
+      String response = Prompt.inputString("정말 입금하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("출금을 취소하였습니다.");
+        out.println("입금을 취소하였습니다.");
         return;
       }
       int oldmoney;
      oldmoney = bank.getBalance(); 
      //+=
-     bank.setBalance(oldmoney-balance);
+     bank.setBalance(balance+oldmoney);
      
-      out.println("출금 되었습니다.");
-      out.printf("출금 후 잔액은  %d 원 입니다.\n", balance);
+      out.println("입금 되었습니다.");
+      out.printf("입금 후 잔액은  %d 원 입니다.\n", balance);
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
