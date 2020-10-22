@@ -2,8 +2,10 @@ package com.eomcs.pms.listener;
 
 import java.util.List;
 import java.util.Map;
+
 import com.eomcs.context.ApplicationContextListener;
 import com.eomcs.pms.domain.Account;
+import com.eomcs.pms.domain.Bank;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
@@ -17,6 +19,8 @@ import com.eomcs.pms.handler.BoardDetailCommand;
 import com.eomcs.pms.handler.BoardListCommand;
 import com.eomcs.pms.handler.BoardUpdateCommand;
 import com.eomcs.pms.handler.CalculatorCommand;
+import com.eomcs.pms.handler.DepositCommand;
+import com.eomcs.pms.handler.DepositListCommand;
 import com.eomcs.pms.handler.HelloCommand;
 import com.eomcs.pms.handler.MemberAddCommand;
 import com.eomcs.pms.handler.MemberDeleteCommand;
@@ -46,6 +50,9 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<Project> projectList = (List<Project>) context.get("projectList");
     List<Task> taskList = (List<Task>) context.get("taskList");
     List<Account> accountList = (List<Account>) context.get("accountList");
+    List<Bank> bankList = (List<Bank>) context.get("bankList");
+
+
     context.put("/board/add", new BoardAddCommand(boardList));
     context.put("/board/list", new BoardListCommand(boardList));
     context.put("/board/detail", new BoardDetailCommand(boardList));
@@ -77,7 +84,9 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/account/opening",new AccountOpeningCommand(accountList)); // 계좌개설
     context.put("/account/list", new AccountListCommand(accountList));
     context.put("/account/delete", new AccountDeleteCommand(accountList));
-    
+
+    context.put("/bank/deposit", new DepositCommand(bankList));
+    context.put("/bank/list", new DepositListCommand(bankList));
   }
 
   @Override
