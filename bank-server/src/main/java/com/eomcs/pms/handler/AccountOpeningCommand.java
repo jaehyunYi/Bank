@@ -19,7 +19,9 @@ public class AccountOpeningCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[계좌 등록]");
+  	  out.println("   ＿＿＿＿＿＿＿＿＿＿＿＿＿");
+  	  out.println("           계좌 등록    ");
+  	  out.println("   ￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
       Bank account = new Bank();
       account.setNo(Prompt.inputInt("번호? ", out, in));
@@ -29,10 +31,10 @@ public class AccountOpeningCommand implements Command {
 
       accountList.add(account);
 
-      out.println("계좌를 등록하였습니다.");
+      out.println("\t계좌 등록 완료 ");
 
     } catch(Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 }

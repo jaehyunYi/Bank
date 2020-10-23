@@ -18,7 +18,9 @@ public class AccountListCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    out.println("[계좌 목록]");
+	  out.println("   ＿＿＿＿＿＿＿＿＿＿＿＿＿");
+	  out.println("           계좌 목록    ");
+	  out.println("   ￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
     // 전체 목록을 조회할 때 `Iterator` 객체를 사용한다.
     // 만약 목록의 일부만 조회하면다면 인덱스를 직접 다루는 이전 방식을 사용해야 한다.
@@ -26,7 +28,7 @@ public class AccountListCommand implements Command {
 
     while (iterator.hasNext()) {
       Bank account = iterator.next();
-      out.printf("%d,%s,%s, %d\n",
+      out.printf(" · %d\t%s\t%s\t%d\t\n",
     	   account.getNo(),
     	   account.getAno(),
           account.getName(),

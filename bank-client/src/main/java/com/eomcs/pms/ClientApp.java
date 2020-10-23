@@ -27,14 +27,20 @@ public class ClientApp {
     System.out.println("\\__ \\  | ___ \\  | |    | |    | ___ \\|  _  || . ` ||    \\   \\__ \\");
     System.out.println("(   /  | |_/ / _| |_   | |    | |_/ /| | | || |\\  || |\\  \\  (   /");
     System.out.println(" |_|   \\____/  \\___/   \\_/    \\____/ \\_| |_/\\_| \\_/\\_| \\_/   |_| ");
-    System.out.println();
-    System.out.println("_______________________________________________________________________");
-    System.out.println("| [1]계좌 개설           [2]");
     host = args[0];
     port = Integer.parseInt(args[1]);
 
     while (true) {
-      String input = Prompt.inputString("명령> ");
+    	System.out.println();
+    	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒   [1] 계좌 개설          [2] 계좌 목록           [3] 계좌 삭제   ▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒   [4] 입금               [5] 출금                                ▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+    	System.out.println();
+      String input = Prompt.inputString("번호 입력> ");
       if (input.equalsIgnoreCase("quit"))
         break;
 
@@ -42,9 +48,10 @@ public class ClientApp {
 
       if (input.equalsIgnoreCase("stop"))
         break;
+     System.out.println();
     }
     System.out.println("안녕!");
-
+    System.out.println();
 
   }
 
