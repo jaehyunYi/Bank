@@ -20,17 +20,21 @@ public class ClientApp {
     }
 
 
-
     System.out.println("  _    ______  _____  _____   ______   ___   _   _  _   __    _  ");
+    try { Thread.sleep(400); } catch (InterruptedException e) {}
     System.out.println(" | |   | ___ \\|_   _||_   _|  | ___ \\ / _ \\ | \\ | || | / /   | | ");
+    try { Thread.sleep(400); } catch (InterruptedException e) {}
     System.out.println("/ __)  | |_/ /  | |    | |    | |_/ // /_\\ \\|  \\| || |/ /   / __)");
+    try { Thread.sleep(400); } catch (InterruptedException e) {}
     System.out.println("\\__ \\  | ___ \\  | |    | |    | ___ \\|  _  || . ` ||    \\   \\__ \\");
+    try { Thread.sleep(400); } catch (InterruptedException e) {}
     System.out.println("(   /  | |_/ / _| |_   | |    | |_/ /| | | || |\\  || |\\  \\  (   /");
+    try { Thread.sleep(400); } catch (InterruptedException e) {}
     System.out.println(" |_|   \\____/  \\___/   \\_/    \\____/ \\_| |_/\\_| \\_/\\_| \\_/   |_| ");
-    host = args[0];
     port = Integer.parseInt(args[1]);
 
     while (true) {
+    	try { Thread.sleep(200); } catch (InterruptedException e) {}
     	System.out.println();
     	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
     	System.out.println("▒▒                                                                  ▒▒");
@@ -40,6 +44,7 @@ public class ClientApp {
     	System.out.println("▒▒                                                                  ▒▒");
     	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
     	System.out.println();
+    	host = args[0];
       String input = Prompt.inputString("번호 입력> ");
       if (input.equalsIgnoreCase("quit"))
         break;

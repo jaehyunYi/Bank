@@ -25,21 +25,25 @@ public class AccountDeleteCommand implements Command {
       int index = indexOf(no);
 
       if (index == -1) {
-        out.println("\t해당 번호의 계좌가 존재하지 않습니다.");
+        out.println("해당 번호의 계좌가 존재하지 않습니다.");
         return;
       }
 
       String response = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("\t계좌 삭제 취소");
+    	  try { Thread.sleep(200); } catch (InterruptedException e) {}
+    	  out.println();
+        out.println("\t✿ 계좌 삭제 취소 ✿");
         return;
       }
 
       accountList.remove(index);
-      out.println("\t계좌 삭제 완료");
+      out.println();
+      try { Thread.sleep(200); } catch (InterruptedException e) {}
+      out.println("\t✿ 계좌 삭제 완료 ✿ ");
 
     } catch (Exception e) {
-      out.printf("\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

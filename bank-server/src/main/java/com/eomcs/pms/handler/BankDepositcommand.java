@@ -35,7 +35,8 @@ public class BankDepositcommand implements Command {
 
       String response = Prompt.inputString("입금 하시겠습니까?(Y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("\t입금 취소");
+    	  try { Thread.sleep(200); } catch (InterruptedException e) {}
+        out.println("\t✿ 입금 취소 ✿");
         return;
       }
       int oldmoney;
@@ -43,11 +44,13 @@ public class BankDepositcommand implements Command {
      //+=
      bank.setBalance(balance+oldmoney);
 
-      out.println("\t입금 완료");
-      out.printf("\t입금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
+      out.println("\t✿ 입금 완료 ✿");
+      out.println();
+      try { Thread.sleep(200); } catch (InterruptedException e) {}
+      out.printf(" 입금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
 
     } catch (Exception e) {
-      out.printf("\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

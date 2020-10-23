@@ -28,7 +28,7 @@ public class AccountListCommand implements Command {
 
     while (iterator.hasNext()) {
       Bank account = iterator.next();
-      out.printf(" · %d\t%s\t%s\t%d\t\n",
+      out.printf(" · %d\t%s\t%s\t%d\t\t\n",
     	   account.getNo(),
     	   account.getAno(),
           account.getName(),

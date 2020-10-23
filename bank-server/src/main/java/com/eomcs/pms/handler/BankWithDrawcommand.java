@@ -32,19 +32,21 @@ public class BankWithDrawcommand implements Command {
 
       int balance = Prompt.inputInt(
           String.format("출금할 돈(%s)? ", bank.getBalance()), out, in);
-
+      out.println();
       String response = Prompt.inputString("출금 하시겠습니까?(Y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("\t출금 취소");
+        out.println("\t✿ 출금 취소 ✿ ");
         return;
       }
       int oldmoney;
      oldmoney = bank.getBalance();
      //+=
      bank.setBalance(oldmoney-balance);
-
-      out.println("\t출금 완료");
-      out.printf("\t출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
+     try { Thread.sleep(200); } catch (InterruptedException e) {}
+      out.println("\t✿ 출금 완료 ✿");
+      out.println();
+      try { Thread.sleep(200); } catch (InterruptedException e) {}
+      out.printf("출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
