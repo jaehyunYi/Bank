@@ -63,7 +63,7 @@ public class ServerApp {
     notifyApplicationContextListenerOnServiceStarted();
 
     try (ServerSocket serverSocket = new ServerSocket(port)) {
-      System.out.println("서버 실행 중...");
+      System.out.println("시스템 실행 중...");
 
       while (true) {
         Socket clientSocket = serverSocket.accept();
@@ -104,7 +104,7 @@ public class ServerApp {
     } catch (Exception e) {
       System.out.println("스레드풀 종료 중 오류 발생!");
     }
-    System.out.println("서버 종료!");
+    System.out.println("시스템 종료!");
   }
 
   public static void main(String[] args) {
