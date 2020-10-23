@@ -27,30 +27,37 @@ public class ClientApp {
     System.out.println("\\__ \\  | ___ \\  | |    | |    | ___ \\|  _  || . ` ||    \\   \\__ \\");
     System.out.println("(   /  | |_/ / _| |_   | |    | |_/ /| | | || |\\  || |\\  \\  (   /");
     System.out.println(" |_|   \\____/  \\___/   \\_/    \\____/ \\_| |_/\\_| \\_/\\_| \\_/   |_| ");
-    System.out.println();
-    System.out.println("_______________________________________________________________________");
-    System.out.println("| [1]계좌 개설           [2]");
     host = args[0];
     port = Integer.parseInt(args[1]);
 
     while (true) {
-      String input = Prompt.inputString("명령> ");
+    	System.out.println();
+    	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒   [1] 계좌 개설          [2] 계좌 목록           [3] 계좌 삭제   ▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒   [4] 입금               [5] 출금                [exit] 종료    ▒▒");
+    	System.out.println("▒▒                                                                  ▒▒");
+    	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+    	System.out.println();
+      String input = Prompt.inputString("명령 입력> ");
       if (input.equalsIgnoreCase("quit"))
         break;
 
       request(input);
 
-      if (input.equalsIgnoreCase("stop"))
+      if (input.equalsIgnoreCase("exit"))
         break;
+     System.out.println();
     }
     System.out.println("안녕!");
-
+    System.out.println();
 
   }
 
   private static void request(String message) {
     // 클라이언트가 서버에 stop 명령을 보내면 다음 변수를 true로 변경한다.
-    boolean stop = false;
+    boolean exit = false;
 
     try (Socket socket = new Socket(host, port);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
@@ -61,14 +68,14 @@ public class ClientApp {
 
       receiveResponse(out, in);
 
-      if (message.equalsIgnoreCase("stop")) {
-        stop = true;
+      if (message.equalsIgnoreCase("exit")) {
+        exit = true;
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
 
-    if (stop) {
+    if (exit) {
       // 서버를 멈추기 위해 그냥 접속했다가 끊는다.
       try (Socket socket = new Socket(host, port)) {
         // 아무것도 안한다.

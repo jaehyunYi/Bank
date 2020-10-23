@@ -23,7 +23,7 @@ public class ServerApp {
 
   // 클라이언트가 "stop" 명령을 보내면 이 값이 true로 변경된다.
   // - 이 값이 true 이면 다음 클라이언트 접속할 때 서버를 종료한다.
-  static boolean stop = false;
+  static boolean exit = false;
 
   // 스레드풀 준비
   ExecutorService threadPool = Executors.newCachedThreadPool();
@@ -68,7 +68,7 @@ public class ServerApp {
       while (true) {
         Socket clientSocket = serverSocket.accept();
 
-        if (stop) {
+        if (exit) {
           break;
         }
         // 직접 스레드를 생성하는 것이 아니라 스레드풀에 작업을 맡긴다.
@@ -130,8 +130,8 @@ public class ServerApp {
       // 클라이언트가 보낸 요청을 읽는다.
       String request = in.readLine();
 
-      if (request.equalsIgnoreCase("stop")) {
-        stop = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
+      if (request.equalsIgnoreCase("exit")) {
+        exit = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
         out.println("서버를 종료하는 중입니다!");
         out.println();
         out.flush();

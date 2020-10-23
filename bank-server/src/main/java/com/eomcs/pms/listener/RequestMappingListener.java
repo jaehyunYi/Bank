@@ -10,7 +10,6 @@ import com.eomcs.pms.handler.AccountListCommand;
 import com.eomcs.pms.handler.AccountOpeningCommand;
 import com.eomcs.pms.handler.BankDepositcommand;
 import com.eomcs.pms.handler.BankWithDrawcommand;
-import com.eomcs.pms.handler.DepositListCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -22,12 +21,12 @@ public class RequestMappingListener implements ApplicationContextListener {
 
     List<Bank> bankList = (List<Bank>) context.get("bankList");
 
-    context.put("/account/opening",new AccountOpeningCommand(bankList)); // 계좌개설
-    context.put("/account/list", new AccountListCommand(bankList));
-    context.put("/account/delete", new AccountDeleteCommand(bankList));
-    context.put("/bank/list", new DepositListCommand(bankList));
-    context.put("/bank/deposit",new BankDepositcommand(bankList));
-    context.put("/bank/withdraw",new BankWithDrawcommand(bankList));
+    context.put("1",new AccountOpeningCommand(bankList)); // 계좌개설
+    context.put("2", new AccountListCommand(bankList));
+    context.put("3", new AccountDeleteCommand(bankList));
+    // context.put("/bank/list", new DepositListCommand(bankList));
+    context.put("4",new BankDepositcommand(bankList));
+    context.put("5",new BankWithDrawcommand(bankList));
   }
 
   @Override
