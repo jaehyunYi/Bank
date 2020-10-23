@@ -30,8 +30,10 @@ public class AccountOpeningCommand implements Command {
       account.setBalance(Prompt.inputInt("잔고? ", out, in));
 
       accountList.add(account);
-      
-      out.println("\t✿ ↖ ↘ 〓 † ‡ ↕계좌 등록 완료 ");
+
+
+      out.println("\t✿ 계좌 등록 완료 ✿");
+
 
     } catch(Exception e) {
       out.printf("\t작업 처리 중 오류 발생! - %s\n", e.getMessage());

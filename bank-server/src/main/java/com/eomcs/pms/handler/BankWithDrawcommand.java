@@ -34,9 +34,10 @@ public class BankWithDrawcommand implements Command {
           String.format("출금할 돈(%s)? ", bank.getBalance()), out, in);
       
 
+
       String response = Prompt.inputString("출금 하시겠습니까?(Y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("\t출금 취소");
+        out.println("\t✿  출금 취소 ✿");
         return;
       }
       int oldmoney;
@@ -46,9 +47,15 @@ public class BankWithDrawcommand implements Command {
      //+=
      bank.setBalance(oldmoney-balance);
 
-     
+
       out.println("\t출금 완료");
       out.printf("\t출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
+
+
+      out.println("\t✿ 출금 완료 ✿");
+      out.printf("출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
+
+
 
 
     } catch (Exception e) {

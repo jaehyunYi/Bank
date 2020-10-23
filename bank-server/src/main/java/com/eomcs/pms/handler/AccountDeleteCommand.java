@@ -34,7 +34,9 @@ public class AccountDeleteCommand implements Command {
       String response = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
 
-        out.println("\t계좌 삭제 취소");
+        out.println("\t✿ 계좌 삭제 취소✿");
+        out.println();
+
 
         return;
       }
