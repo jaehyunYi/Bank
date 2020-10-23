@@ -52,11 +52,6 @@ public class BankWithDrawcommand implements Command {
      //+=
      bank.setBalance(oldmoney-balance);
 
-
-      out.println("\t출금 완료");
-      out.printf("\t출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
-
-
       out.println("\t✿ 출금 완료 ✿");
       out.printf("출금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
 
