@@ -42,7 +42,7 @@ public class BankDepositcommand implements Command {
      bank.setBalance(balance+oldmoney);
      
       out.println("입금 되었습니다.");
-      out.printf("입금 후 잔액은  %d 원 입니다.\n", balance);
+      out.printf("입금 후 잔액은  %d 원 입니다.\n", bank.getBalance());
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());

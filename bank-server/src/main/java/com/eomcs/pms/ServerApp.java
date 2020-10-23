@@ -109,7 +109,7 @@ public class ServerApp {
 
   public static void main(String[] args) {
     ServerApp server = new ServerApp();
-
+    
     // 리스너(옵저버/구독자) 등록
     server.addApplicationContextListener(new AppInitListener());
     server.addApplicationContextListener(new DataHandlerListener());
