@@ -40,7 +40,7 @@ public class ClientApp {
     	System.out.println("▒▒                                                                  ▒▒");
     	System.out.println("▒▒   [1] 계좌 개설          [2] 계좌 목록           [3] 계좌 삭제   ▒▒");
     	System.out.println("▒▒                                                                  ▒▒");
-    	System.out.println("▒▒   [4] 입금               [5] 출금                [exit] 종료    ▒▒");
+    	System.out.println("▒▒   [4] 입금               [5] 출금                [exit] 종료     ▒▒");
     	System.out.println("▒▒                                                                  ▒▒");
     	System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
     	System.out.println();

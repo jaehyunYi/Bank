@@ -32,7 +32,7 @@ public class BankWithDrawcommand implements Command {
 
       int balance = Prompt.inputInt(
           String.format("출금할 돈(%s)? ", bank.getBalance()), out, in);
-      
+
 
 
       String response = Prompt.inputString("출금 하시겠습니까?(Y/N) ", out, in);
@@ -43,6 +43,11 @@ public class BankWithDrawcommand implements Command {
       int oldmoney;
 
      oldmoney = bank.getBalance();
+     if(oldmoney - balance < 0) {
+    	 out.println("\t✿  잔액 부족 ✿");
+    	 out.printf("\n 잔액은 %d 원 입니다.\n", bank.getBalance());
+    	 return;
+     }
 
      //+=
      bank.setBalance(oldmoney-balance);

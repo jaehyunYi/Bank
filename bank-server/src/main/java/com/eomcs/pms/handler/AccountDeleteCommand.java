@@ -43,7 +43,7 @@ public class AccountDeleteCommand implements Command {
 
       accountList.remove(index);
 
-      out.println("\t계좌 삭제 완료");
+      out.println("\t✿ 계좌 삭제 완료 ✿");
 
 
     } catch (Exception e) {
